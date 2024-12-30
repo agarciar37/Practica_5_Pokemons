@@ -16,12 +16,10 @@ export const resolvers = {
   Pokemon: {
     abilities: async (parent: Pokemon): Promise<Ability[]> => {
       const abilities = parent.abilities;
-      // abilities[i].url -> https://pokeapi.co/api/v2/ability/{id}
       return Promise.all(abilities.map(a => getAbilityDetail(a.url)));
     },
     moves: async (parent: Pokemon): Promise<Move[]> => {
       const moves = parent.moves;
-      // moves[i].url -> https://pokeapi.co/api/v2/move/{id}
       return Promise.all(moves.map(m => getMoveDetail(m.url)));
     }
   }

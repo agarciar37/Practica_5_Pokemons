@@ -7,7 +7,7 @@ type RawMoveResponse = {
 
 export const getMoveDetail = async (url: string): Promise<Move> => {
   const response = await fetch(url);
-  if (!response.ok) throw new Error("Failed to fetch move");
+  if (!response.ok) throw new Error("Error al obtener el movimiento");
 
   const data: RawMoveResponse = await response.json();
   return {
